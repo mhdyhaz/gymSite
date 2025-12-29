@@ -13,4 +13,10 @@ class GymController extends Controller
 
         return view('gyms.index', compact('gyms'));
     }
+    public function show($slug)
+    {
+        $gym = Gym::where('slug', $slug)->firstOrFail();
+
+        return view('gyms.show', compact('gym'));
+    }
 }
