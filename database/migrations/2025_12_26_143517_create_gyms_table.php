@@ -13,24 +13,21 @@ return new class extends Migration
     {
         Schema::create('gyms', function (Blueprint $table) {
             $table->id();
-
-            $table->string('name');
-            $table->text('description');
-
-            $table->string('address');
-            $table->string('access_info')->nullable();
-
-            $table->string('price_range');
-            $table->string('working_hours');
-
-            $table->boolean('is_affordable')->default(true);
-
-            $table->string('meta_title');
-            $table->string('meta_description');
-
+    
+            $table->string('name');              
+            $table->string('slug')->unique();
+            $table->string('city')->nullable();    
+            $table->string('address');              
+            $table->string('phone')->nullable();    
+            $table->string('cover_image')->nullable(); 
+            $table->text('description')->nullable();
+    
+            $table->boolean('is_active')->default(true); 
+    
             $table->timestamps();
         });
     }
+    
 
     /**
      * Reverse the migrations.
