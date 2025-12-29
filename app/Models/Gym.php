@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Gym extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'image',
+        'is_active'
+    ];
+    
 }
