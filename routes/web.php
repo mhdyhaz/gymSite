@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\GymController;
 
-Route::get('/gyms', [GymController::class, 'index'])->name('gyms.index');
-Route::get('/gyms/{slug}', [GymController::class, 'show'])->name('gyms.show');
+Route::controller(GymController::class)->group(function(){
+    Route::get('/','index')->name('gyms.index');
+    Route::get('/gyms/{gym:slug}', 'show')->name('gyms.show');
+    });
 

@@ -1,21 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-use App\Models\Gym;
+use App\Http\Requests\GymRequest;
+use App\Services\GymService;
 
 class GymController extends Controller
 {
+    protected GymService $gymService;
+
+    public function __construct(GymService $gymService)
+    {
+        $this->gymService = $gymService;
+    }
+
     public function index()
     {
-        $gyms = Gym::latest()->paginate(10);
+        $gyms = $this->gymService->getAllGyms();
 
         return view('gyms.index', compact('gyms'));
     }
-    public function show($slug)
+
+    public function show(GymRequest $request)
     {
-        $gym = Gym::where('slug', $slug)->firstOrFail();
+        $gym = $this->gymService->getGymBySlug($request->slug);
 
         return view('gyms.show', compact('gym'));
     }
