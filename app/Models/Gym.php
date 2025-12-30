@@ -16,4 +16,12 @@ class Gym extends Model
         $gym->slug = Str::slug($gym->name);
     });
 }
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'image',
+        'is_active'
+    ];
+    
 }
