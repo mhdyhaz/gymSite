@@ -15,14 +15,14 @@ class GymController extends Controller
 
     public function index()
     {
-        $gyms = $this->gymService->getAllGyms();
+        $gyms = $this->gymService->listGyms();
 
         return view('gyms.index', compact('gyms'));
     }
 
     public function show(GymRequest $request)
     {
-        $gym = $this->gymService->getGymBySlug($request->slug);
+        $gym = $this->gymService->showGym($request->slug);
 
         return view('gyms.show', compact('gym'));
     }
