@@ -17,25 +17,25 @@ class GymRepository
     }
 
   
-    public function findBySlug(string $slug): Gym
+    public function findBySlug(string $slug)
     {
         return Gym::where('slug', $slug)->firstOrFail();
     }
 
   
-    public function create(array $data): Gym
+    public function create(array $data)
     {
         return Gym::create($data);
     }
 
  
-    public function update(Gym $gym, array $data): Gym
+    public function update(Gym $gym, array $data)
     {
         $gym->update($data);
         return $gym;
     }
 
-    public function delete(Gym $gym): bool
+    public function delete(Gym $gym)
     {
         return (bool) $gym->delete();
     }

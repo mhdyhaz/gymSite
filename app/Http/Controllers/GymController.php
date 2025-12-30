@@ -15,7 +15,7 @@ class GymController extends Controller
 
     public function index()
     {
-        $gyms = $this->gymService->listGyms();
+        $gyms = $this->gymService->listGyms(12);
 
         return view('gyms.index', compact('gyms'));
     }
