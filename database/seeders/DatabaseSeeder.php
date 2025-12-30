@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GymSeeder::class,
         ]);
+        $this->call([
+            ArticleSeeder::class,
+        ]);
 
         User::factory()->create([
             'name'  => 'Test User',
