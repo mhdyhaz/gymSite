@@ -1,6 +1,3 @@
-<footer class="bg-gray-800 text-white py-6 mt-12">
-    <div class="container mx-auto text-center">
-        <p>&copy; 2025 باشگاه ما. همه حقوق محفوظ است.</p>
-        <p>آدرس: تهران، خیابان مثال</p>
-    </div>
+<footer class="bg-gray-800 text-white text-center py-6 mt-12">
+    <p>&copy; {{ date('Y') }} باشگاه جدال. همه حقوق محفوظ است.</p>
 </footer>
