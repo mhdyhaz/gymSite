@@ -21,18 +21,18 @@ class GymService
     }
 
 
-    public function showGym(string $slug)
+    public function showGym(string $slug): Gym
     {
         return $this->gymRepository->findBySlug($slug);
     }
 
-    public function createGym(array $data)
+    public function createGym(array $data): Gym
     {
         return $this->gymRepository->create($data);
     }
 
    
-    public function updateGym(Gym $gym, array $data)
+    public function updateGym(Gym $gym, array $data): Gym
     {
         return $this->gymRepository->update($gym, $data);
     }
