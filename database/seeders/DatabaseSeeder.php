@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             GymSeeder::class,
-        ]);
-        $this->call([
             ArticleSeeder::class,
         ]);
 
