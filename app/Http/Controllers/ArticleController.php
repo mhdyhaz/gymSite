@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\ArticleRequest;
 use App\Services\ArticleService;
 
@@ -22,8 +23,13 @@ class ArticleController extends Controller
     public function store(ArticleRequest $request)
     {
         $article = $this->articleService->createArticle($request->validated());
-    
+
         return redirect()->route('articles.show', $article->slug);
     }
-    
+
+    public function show($slug)
+    {
+        $article = $this->articleService->getArticleBySlug($slug);
+        return view('articles.show', compact('article'));
+    }
 }
